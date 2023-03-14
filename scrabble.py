@@ -1,5 +1,5 @@
 import dataiku
-files = dataiku.Folder(${default_folder})
+files = dataiku.Folder(dataiku.get_custom_variables()["default_folder"])
 with files.get_download_stream('sowpods.txt') as f:
     wordlist = f.readlines()
 wordlist = [word.lower().strip().decode('utf-8') for word in wordlist]
